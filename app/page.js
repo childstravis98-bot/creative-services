@@ -1,8 +1,7 @@
 export default function Home() {
   return (
-    <div style={{padding: 20}}>
-      <h1>🚀 Site is LIVE</h1>
-      <p>If you see this, deployment works.</p>
-    </div>
+    <main>
+      <h1>Premier Creative Services</h1>
+    </main>
   );
 }
