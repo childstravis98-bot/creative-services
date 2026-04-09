@@ -1,4 +1,3 @@
-
 export default function Home() { const services = [ { title: 'AI Website Creation', text: 'Fast, modern websites built to help your business look professional and get more customers.', }, { title: 'Brand Refresh', text: 'Clean visual updates for businesses that need a sharper, more trustworthy online presence.', }, { title: 'Lead-Ready Pages', text: 'Clear calls-to-action, contact sections, and service layouts designed to turn visitors into leads.', }, ];
 
 const highlights = [ 'Mobile-friendly design', 'Fast turnaround', 'Simple pricing', 'Professional presentation', ];
