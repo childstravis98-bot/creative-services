@@ -1,346 +1,163 @@
+import { Upload, Palette, Sparkles, ShoppingCart, Download, ShieldCheck, ImageIcon, Waves } from "lucide-react";
+import "./styles.css";
+
 export default function Home() {
-  const services = [
-    {
-      title: "Full Custom Paint Jobs",
-      text: "Complete custom paint for e-bike frames, panels, forks, and parts built to give your ride a bold, one-of-a-kind finish.",
-    },
-    {
-      title: "Color Matching & Design",
-      text: "From sleek factory-style colors to loud custom concepts, we help create a paint design that fits your style.",
-    },
-    {
-      title: "Refresh & Repaint Work",
-      text: "Restore faded, scratched, or worn parts with clean repaint work that brings your e-bike back to life.",
-    },
+  const styles = [
+    "Surf & Coastal",
+    "Racing & Speed",
+    "Stealth Matte",
+    "Retro Vintage",
+    "Neon Cyber",
+    "Camo Adventure",
+    "Chrome Metallic",
+    "Custom Theme",
   ];
 
-  const highlights = [
-    "Custom finishes",
-    "Built for e-bikes",
-    "Clean detail work",
-    "Head-turning results",
+  const plans = [
+    { name: "Starter Pack", price: "$19", designs: "10 AI designs" },
+    { name: "Pro Pack", price: "$29", designs: "25 AI designs", best: true },
+    { name: "Ultimate Pack", price: "$49", designs: "50 AI designs" },
   ];
 
   return (
-    <main
-      style={{
-        fontFamily: "Arial, sans-serif",
-        color: "#111827",
-        background: "#ffffff",
-      }}
-    >
-      <section
-        style={{
-          background: "linear-gradient(135deg, #111827, #2563eb)",
-          color: "white",
-          padding: "72px 24px 64px",
-        }}
-      >
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <div
-            style={{
-              display: "inline-block",
-              padding: "8px 14px",
-              borderRadius: 999,
-              background: "rgba(255,255,255,0.14)",
-              marginBottom: 18,
-              fontSize: 14,
-              fontWeight: 700,
-            }}
-          >
-            Custom E-Bike Paint
-          </div>
+    <main>
+      <nav className="nav">
+        <div className="brand">
+          <div className="brand-script">Beach House</div>
+          <div className="brand-small">CREATIVES</div>
+        </div>
+        <div className="nav-links">
+          <a href="#how">How It Works</a>
+          <a href="#styles">Design Styles</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a className="nav-button" href="#upload">Upload Your Bike</a>
+      </nav>
 
-          <h1
-            style={{
-              fontSize: "clamp(2.2rem, 5vw, 4.5rem)",
-              lineHeight: 1.05,
-              margin: "0 0 16px",
-              maxWidth: 850,
-            }}
-          >
-            Custom paint jobs that make your e-bike stand out.
-          </h1>
-
-          <p
-            style={{
-              fontSize: "1.1rem",
-              lineHeight: 1.7,
-              maxWidth: 760,
-              color: "rgba(255,255,255,0.9)",
-              marginBottom: 28,
-            }}
-          >
-            We create clean, bold, custom finishes for e-bikes that turn heads
-            and give your ride a more professional, personal look.
+      <section className="hero">
+        <div className="hero-copy">
+          <p className="eyebrow">AI-Powered E-Bike Paint Designs</p>
+          <h1>Your Bike. Your Style. Endless Possibilities.</h1>
+          <p className="hero-text">
+            Upload your e-bike, choose a style, and get custom AI-generated paint concepts.
+            Buy your favorite design and download high-resolution files to bring your vision to life.
           </p>
-
-          <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-            <a
-              href="#contact"
-              style={{
-                background: "#ffffff",
-                color: "#111827",
-                padding: "14px 22px",
-                borderRadius: 12,
-                textDecoration: "none",
-                fontWeight: 700,
-              }}
-            >
-              Get a Quote
-            </a>
-            <a
-              href="#services"
-              style={{
-                border: "1px solid rgba(255,255,255,0.35)",
-                color: "#ffffff",
-                padding: "14px 22px",
-                borderRadius: 12,
-                textDecoration: "none",
-                fontWeight: 700,
-              }}
-            >
-              View Services
-            </a>
+          <div className="hero-actions">
+            <a className="primary-btn" href="#upload"><Upload size={19} /> Upload Your E-Bike</a>
+            <a className="secondary-btn" href="#how">See How It Works</a>
+          </div>
+        </div>
+        <div className="bike-card">
+          <div className="sun"></div>
+          <div className="bike-art">
+            <div className="wheel left"></div>
+            <div className="wheel right"></div>
+            <div className="frame"></div>
+            <div className="bar"></div>
+            <div className="seat"></div>
+            <div className="paint-panel">Beach House<br/>Creatives</div>
           </div>
         </div>
       </section>
 
-      <section
-        style={{
-          padding: "26px 24px",
-          borderBottom: "1px solid #e5e7eb",
-          background: "#f8fafc",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1100,
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-            gap: 14,
-          }}
-        >
-          {highlights.map((item) => (
-            <div
-              key={item}
-              style={{
-                background: "white",
-                border: "1px solid #e5e7eb",
-                borderRadius: 14,
-                padding: "16px 18px",
-                textAlign: "center",
-                fontWeight: 700,
-              }}
-            >
-              {item}
+      <section id="how" className="process">
+        <p className="script">Simple Process. Awesome Results.</p>
+        <div className="steps">
+          {[
+            ["Upload", "Upload a clear photo of your e-bike.", Upload],
+            ["Choose Style", "Pick a theme that fits your vibe.", Palette],
+            ["AI Generates", "Get unique paint design concepts.", Sparkles],
+            ["Choose & Buy", "Select your favorite and purchase.", ShoppingCart],
+            ["Download", "Receive files and color references.", Download],
+          ].map(([title, text, Icon], index) => (
+            <div className="step" key={title}>
+              <div className="step-icon"><Icon size={27} /></div>
+              <span>{index + 1}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section id="services" style={{ padding: "72px 24px" }}>
-        <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-          <p style={{ color: "#2563eb", fontWeight: 700, marginBottom: 10 }}>
-            What We Do
-          </p>
-          <h2 style={{ fontSize: "2.2rem", margin: "0 0 14px" }}>
-            Custom paint services for e-bike owners who want something better
-            than stock
-          </h2>
-          <p
-            style={{
-              color: "#4b5563",
-              maxWidth: 760,
-              lineHeight: 1.7,
-              marginBottom: 30,
-            }}
-          >
-            Whether you want a full color change, a cleaner custom look, or a
-            refreshed finish on worn parts, we help bring your e-bike vision to
-            life.
-          </p>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-              gap: 20,
-            }}
-          >
-            {services.map((service) => (
-              <div
-                key={service.title}
-                style={{
-                  border: "1px solid #e5e7eb",
-                  borderRadius: 18,
-                  padding: 24,
-                  background: "#ffffff",
-                  boxShadow: "0 10px 30px rgba(15, 23, 42, 0.05)",
-                }}
-              >
-                <h3 style={{ marginTop: 0, fontSize: "1.2rem" }}>
-                  {service.title}
-                </h3>
-                <p
-                  style={{
-                    color: "#4b5563",
-                    lineHeight: 1.7,
-                    marginBottom: 0,
-                  }}
-                >
-                  {service.text}
-                </p>
-              </div>
-            ))}
-          </div>
+      <section id="styles" className="showcase">
+        <div>
+          <p className="eyebrow dark">Design Styles</p>
+          <h2>Choose the look. Let AI create the concepts.</h2>
+          <ul className="style-list">
+            {styles.map((style) => <li key={style}>● {style}</li>)}
+          </ul>
         </div>
-      </section>
 
-      <section
-        style={{
-          background: "#111827",
-          color: "white",
-          padding: "72px 24px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: 1100,
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: 28,
-            alignItems: "center",
-          }}
-        >
-          <div>
-            <p style={{ color: "#93c5fd", fontWeight: 700, marginBottom: 10 }}>
-              Why Choose Us
-            </p>
-            <h2 style={{ fontSize: "2.2rem", margin: "0 0 14px" }}>
-              Give your e-bike a finish that actually gets noticed
-            </h2>
-            <p style={{ color: "rgba(255,255,255,0.82)", lineHeight: 1.8 }}>
-              A custom paint job changes the whole look of your bike. We help
-              riders create a cleaner, more unique build with detail-focused
-              paint work made for e-bikes.
-            </p>
-          </div>
-
-          <div
-            style={{
-              background: "rgba(255,255,255,0.06)",
-              border: "1px solid rgba(255,255,255,0.12)",
-              borderRadius: 20,
-              padding: 24,
-            }}
-          >
-            <div style={{ display: "grid", gap: 16 }}>
-              <div>
-                <strong>Custom look</strong>
-                <p
-                  style={{
-                    margin: "8px 0 0",
-                    color: "rgba(255,255,255,0.82)",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  Stand out with a paint finish designed around your ride and
-                  your style.
-                </p>
-              </div>
-              <div>
-                <strong>Clean detail work</strong>
-                <p
-                  style={{
-                    margin: "8px 0 0",
-                    color: "rgba(255,255,255,0.82)",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  We focus on a sharp, polished result that looks intentional
-                  and professionally done.
-                </p>
-              </div>
-              <div>
-                <strong>Built for riders</strong>
-                <p
-                  style={{
-                    margin: "8px 0 0",
-                    color: "rgba(255,255,255,0.82)",
-                    lineHeight: 1.7,
-                  }}
-                >
-                  Whether you want subtle, aggressive, or full custom, we help
-                  bring the idea to life.
-                </p>
-              </div>
+        <div className="gallery">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div className={`design-card card-${i + 1}`} key={i}>
+              <ImageIcon size={26} />
+              <span>Design {i + 1}</span>
             </div>
-          </div>
+          ))}
         </div>
       </section>
 
-      <section id="contact" style={{ padding: "72px 24px", background: "#f8fafc" }}>
-        <div
-          style={{
-            maxWidth: 1100,
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-            gap: 24,
-          }}
-        >
-          <div>
-            <p style={{ color: "#2563eb", fontWeight: 700, marginBottom: 10 }}>
-              Get Started
-            </p>
-            <h2 style={{ fontSize: "2.2rem", margin: "0 0 14px" }}>
-              Ready to transform your e-bike?
-            </h2>
-            <p style={{ color: "#4b5563", lineHeight: 1.8 }}>
-              Tell us what bike you have, what color or style you want, and what
-              parts need work. We’ll help you create a custom finish that stands
-              out.
-            </p>
-          </div>
-
-          <div
-            style={{
-              background: "#ffffff",
-              border: "1px solid #e5e7eb",
-              borderRadius: 18,
-              padding: 24,
-              boxShadow: "0 10px 30px rgba(15, 23, 42, 0.06)",
-            }}
-          >
-            <p style={{ marginTop: 0, fontWeight: 700, fontSize: "1.1rem" }}>
-              Contact
-            </p>
-            <p style={{ color: "#4b5563", lineHeight: 1.8 }}>
-              Email: yourname@email.com
-              <br />
-              Phone: (555) 555-5555
-            </p>
-            <a
-              href="mailto:yourname@email.com"
-              style={{
-                display: "inline-block",
-                marginTop: 8,
-                background: "#2563eb",
-                color: "#ffffff",
-                padding: "14px 22px",
-                borderRadius: 12,
-                textDecoration: "none",
-                fontWeight: 700,
-              }}
-            >
-              Email Now
-            </a>
-          </div>
+      <section id="pricing" className="pricing">
+        <div>
+          <p className="eyebrow dark">Pricing</p>
+          <h2>Sell digital paint designs without painting the bikes.</h2>
+          <p>
+            Beach House Creatives is built as a digital product business.
+            Customers pay for the designs, not the paint job.
+          </p>
+        </div>
+        <div className="plans">
+          {plans.map((plan) => (
+            <div className={plan.best ? "plan best" : "plan"} key={plan.name}>
+              {plan.best && <div className="best-tag">Best Value</div>}
+              <h3>{plan.name}</h3>
+              <strong>{plan.price}</strong>
+              <p>{plan.designs}</p>
+              <a href="#upload">Get Started</a>
+            </div>
+          ))}
         </div>
       </section>
+
+      <section className="trust">
+        <div><Waves /> 100% Digital Downloads</div>
+        <div><ShieldCheck /> Secure Payments</div>
+        <div><Sparkles /> Unlimited Style Possibilities</div>
+        <div><Download /> High-Resolution Files</div>
+      </section>
+
+      <section id="upload" className="upload-box">
+        <div>
+          <p className="eyebrow dark">Start Your Design</p>
+          <h2>Upload your e-bike and request custom AI paint concepts.</h2>
+          <p>
+            This starter site is ready for your next upgrade: live photo upload, AI generation,
+            Stripe checkout, and customer downloads.
+          </p>
+        </div>
+        <form className="form">
+          <input placeholder="Your name" />
+          <input placeholder="Email address" />
+          <input placeholder="E-bike make/model" />
+          <textarea placeholder="Describe the style you want: surf, racing, stealth, neon, retro, camo, etc." />
+          <button type="button">Request Design Preview</button>
+        </form>
+      </section>
+
+      <footer id="contact">
+        <div className="footer-brand">
+          <div className="brand-script">Beach House</div>
+          <div className="brand-small">CREATIVES</div>
+          <p>Design it. Own it. Ride it.</p>
+        </div>
+        <div>
+          <h3>Your Vision. Our Creativity. Endless Designs.</h3>
+          <p>AI-generated custom e-bike paint designs for riders who want something original.</p>
+        </div>
+      </footer>
     </main>
   );
 }
